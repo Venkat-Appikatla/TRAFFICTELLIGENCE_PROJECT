@@ -4,15 +4,17 @@ import pandas as pd
 import os
 from flask import Flask, request, jsonify, render_template
 
-app = Flask(__name__)
+# app = Flask(__name__)
+app = Flask(__name__,'index ')
+
 
 # Load trained model and scaler
-model = pickle.load(open('model.pkl', 'rb'))
-scale = pickle.load(open('encoder.pkl', 'rb'))  # Ensure this was trained with correct feature names
+model = pickle.load(open(r'C:\Users\appik\Downloads\model.pkl', 'rb'))
+scale = pickle.load(open(r'C:\Users\appik\Downloads\encoder.pkl', 'rb'))  # Ensure this was trained with correct feature names
 
 @app.route('/')  # Home page
 def home():
-    return render_template("index.html")  # Rendering the home page
+    return render_template(r"C:\Users\appik\OneDrive\Desktop\venkat\html")  # Rendering the home page
 
 
 @app.route('/predict', methods=["POST", "GET"])  # Prediction route
